@@ -1,51 +1,71 @@
 
 import React from 'react';
-import { UserPlus, Gauge, AppWindow, Globe } from 'lucide-react';
+import { Rocket, Monitor, Key, Bot, CheckCircle, Smartphone, Terminal, Settings } from 'lucide-react';
 
 const Features: React.FC = () => {
-  const features = [
+  const steps = [
     {
-      icon: <UserPlus className="w-6 h-6" />,
-      title: "引导式初始化",
-      description: "交互式表单管理 API 密钥、通讯令牌和环境路径。我们为您自动生成所有配置文件。"
+      icon: <Terminal className="w-5 h-5" />,
+      title: "1. 运行命令",
+      description: "复制 Hero 区域的命令并运行，Manager 服务将自动启动。"
     },
     {
-      icon: <Gauge className="w-6 h-6" />,
-      title: "服务状态监控",
-      description: "实时掌握 OpenClaw 实例的运行状况。支持一键启动、停止或平滑重启。"
+      icon: <Monitor className="w-5 h-5" />,
+      title: "2. 访问面板",
+      description: "打开浏览器访问：http://localhost:17321 即可看到管理界面。"
     },
     {
-      icon: <AppWindow className="w-6 h-6" />,
-      title: "可视化配置中心",
-      description: "通过直观的开关和滑块调整技能设置、记忆存储偏好以及 LLM 模型权重。"
+      icon: <Key className="w-5 h-5" />,
+      title: "3. 安全登录",
+      description: "使用安装时设置的用户名和密码登录管理后台。"
     },
     {
-      icon: <Globe className="w-6 h-6" />,
-      title: "社区生态集成",
-      description: "预留插件市场接口，支持社区配置模板的一键导入与分享，促进生态协作。"
+      icon: <Settings className="w-5 h-5" />,
+      title: "4. 安装 CLI",
+      description: "在面板中一键下载并初始化 Clawdbot CLI 核心组件。"
+    },
+    {
+      icon: <Rocket className="w-5 h-5" />,
+      title: "5. Discord 配置",
+      description: "填写您的 Discord Bot Token，打通与 Discord 的连接。"
+    },
+    {
+      icon: <Smartphone className="w-5 h-5" />,
+      title: "6. 模型配置",
+      description: "配置 AI 模型 API Key，赋予您的助理智能对话能力。"
+    },
+    {
+      icon: <Bot className="w-5 h-5" />,
+      title: "7. 建立配对",
+      description: "与您的 Bot 实例完成配对，确保双向通信正常。"
+    },
+    {
+      icon: <CheckCircle className="w-5 h-5" />,
+      title: "8. 完成使用",
+      description: "一切就绪！现在您可以开始享受 AI 驱动的自动化体验。"
     }
   ];
 
   return (
-    <section id="features" className="py-20 md:py-24 px-6 bg-[#050b1a]/50 border-y border-white/5">
+    <section id="steps" className="py-20 md:py-24 px-6 bg-[#050b1a]/50 border-y border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 md:mb-16 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">核心功能模块</h2>
-          <p className="text-slate-400 max-w-xl mx-auto">作为 OpenClaw 生态的关键补充，旨在赋能非技术背景用户。</p>
+          <h2 className="text-3xl font-bold text-white mb-4">安装与使用流程</h2>
+          <p className="text-slate-400 max-w-xl mx-auto">遵循以下 8 个简单步骤，几分钟内即可完成部署。</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, idx) => (
+          {steps.map((step, idx) => (
             <div 
               key={idx} 
-              className="p-6 md:p-8 rounded-2xl glass border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group"
+              className="p-6 rounded-2xl glass border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group flex flex-col"
             >
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-black transition-all">
-                {feature.icon}
+              <div className="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:bg-cyan-500 group-hover:text-black transition-all">
+                {step.icon}
               </div>
-              <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                {feature.description}
+              <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
+              <p className="text-xs text-slate-400 leading-relaxed flex-grow">
+                {step.description}
               </p>
             </div>
           ))}
